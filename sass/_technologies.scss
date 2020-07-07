@@ -1,0 +1,204 @@
+
+
+.technologies-container {
+  position: absolute;
+  height: 100vh;
+  top: 25px;
+  width: 100vw;
+
+  h1 {
+    font-family: 'techFont';
+    font-size: 1.3em;
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    top: 40px;
+    font-weight: 500;
+  }
+  section {
+    position: absolute;
+    top: 70px;
+    width: 100vw;
+}
+
+  .frontend {
+    justify-content: center;
+    position: relative;
+    display: flex;
+    width: 90vw;
+    left: 5vw;
+    list-style: none;
+    flex-wrap: wrap;
+    &:before{
+      content: "";
+      position: relative;
+      background-color: black;
+      width: 100vw;
+      height: 4px;
+      transform: translateX(-150vw);
+      animation: line-forward 3s forwards;
+      animation-delay: 4s;
+
+    }
+    &:after {
+      content: "";
+      position: relative;
+      background-color: black;
+      width: 100vw;
+      height: 4px;
+      transform: translateX(150vw);
+      animation: line-backward 3s forwards;
+      animation-delay: 4s;
+    }
+
+    li {
+      left: 50px;
+      top: 50px;
+      width: 45px;
+      height: 45px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 5px;
+    }
+
+    li:nth-child(1) {
+      background-image: url('../assets/angular.png');
+    }
+    li:nth-child(2) {
+      background-image: url("../assets/typescript.png");
+    }
+    li:nth-child(3) {
+      background-image: url("../assets/javascript.png");
+    }
+    li:nth-child(4) {
+      background-image: url("../assets/html.png");
+    }
+    li:nth-child(5) {
+      background-image: url("../assets/css.png");
+    }
+    li:nth-child(6) {
+      background-image: url("../assets/nodejs.png");
+    }
+    li:nth-child(7) {
+      background-image: url("../assets/rest.png");
+    }
+    li:nth-child(8) {
+      background-image: url("../assets/rwd.png");
+    }
+  }
+  .backend {
+    justify-content: center;
+    position: relative;
+    width: 90vw;
+    left: 5vw;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    &:after {
+      content: "";
+      background-color: black;
+      width: 100vw;
+      height: 4px;
+      transform: translateX(150vw);
+      animation: line-forward 3s forwards;
+      animation-delay: 4s;
+    }
+
+    li {
+      left: 50px;
+      top: 50px;
+      width: 45px;
+      height: 45px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 5px;
+    }
+    li:nth-child(1) {
+      background-image: url("../assets/csharp.png");
+    }
+    li:nth-child(2) {
+      background-image: url("../assets/sql.png");
+    }
+    li:nth-child(3) {
+      background-image: url("../assets/ef.png");
+    }
+  }
+  h2 {
+    font-family: 'techFont';
+    animation: details-string 1s forwards;
+    animation-delay: 7s;
+    opacity: 0;
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    top: 90px;
+    font-weight: 50;
+    font-size: large;
+    a {
+      font-family: 'techFont';
+      text-decoration: none;
+      color: #195190FF;
+      &:hover {
+        cursor: pointer;
+        color: rgb(72, 130, 196) ;
+      }
+    }
+  }
+}
+@media (min-width: 1025px)  {
+  .technologies-container {
+
+  h1 {
+    font-size:2.5em;
+  }
+  h2 {
+
+    font-size:2.5em;
+  }
+
+}
+}
+
+
+
+
+
+@media (max-width: 600px)  {
+  .technologies-container {
+  h1 {
+    font-size:1.3em;
+  }
+  h2 {
+
+    font-size:1.3em;
+  }
+
+}
+}
+
+@media (max-width: 360px)  {
+  .technologies-container {
+  h1 {
+    font-size:1.4em;
+  }
+  h2 {
+
+    font-size:1.5em;
+  }
+
+}
+}
+@media (min-width: 600px) and (orientation: portrait) {
+  .technologies-container{
+    li {
+      padding: 5%;
+    }
+  }
+}
+@media (min-width: 600px) and (min-height: 600px) and (orientation: landscape) {
+  .technologies-container{
+    li {
+      padding: 3%;
+    }
+  }
+}

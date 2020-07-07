@@ -1,0 +1,310 @@
+.projects-header {
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    top: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    left: 1%;
+    font-family: 'techFont';
+}
+
+.projects-container {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;  
+    position: absolute;
+
+
+
+    .project1{
+            position: absolute;
+            top: 0%;
+            width: 48%;
+            left: 1%;
+            height: 40%;
+            border-radius: 5px;
+            z-index: 0;
+        &:hover {
+            transform: translate(52%,50%) scale(2.08);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/dziennik-vertical.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 2s;
+            
+        }
+    }
+
+    .project2{
+        position: absolute;
+            top: 0%;
+            left: 51%;
+            width: 48%;
+            height: 40%;
+            border-radius: 5px;
+            z-index: 0;
+        &:hover {
+             transform: translate(-52%,50%) scale(2.08);
+             z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/FriendlyBeat-vertical.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 2s;
+        }
+    }
+
+    .project3{
+        position: absolute;
+        border-radius: 5px;
+        width: 48%;
+        height: 43%;
+        left: 1%;
+        top: 48%;
+        z-index: 0;
+        &:hover {
+            transform: translate(52%,-54%) scale(2.08);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/portfolioWebsite.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 2s;
+        }
+    }
+
+    .project4{
+        position: absolute;
+                    border-radius: 5px;
+                    width: 48%;
+                    height: 43%;
+                    left: 51%;
+                    top: 48%;
+                    z-index: 0;
+        &:hover {
+            transform: translate(-52%,-54%) scale(2.08);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            transition: 2s;
+            background-image: url('../assets/game.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+
+.project1:hover, .project2:hover,.project3:hover,.project4:hover {
+    .img{
+    filter: brightness(60%);
+    }    
+}
+
+
+.project1, .project2, .project3, .project4  {
+    transition: transform 2s ease-in-out;
+    section {
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    width: 100%;
+    transition: 1s;
+    opacity: 0;    
+    }
+}
+
+.project1:hover, .project2:hover, .project3:hover, .project4:hover {
+    section{
+    opacity: 1;
+    }
+}
+
+div section {
+    div {
+
+        margin: 10%;
+        display: inline;
+        cursor: pointer;
+        a {
+            text-decoration: none;
+            color: white;
+            &:hover {
+                color: wheat;
+            }
+        }
+        
+
+    }
+}
+}
+
+@media (min-height: 801px) and (orientation: portrait)  {
+    .projects-container{
+    .project1 {
+        &:hover {
+            transform: translate(52%,50%) scale(2.05);   
+        }
+    }
+    .project2 {
+        &:hover {
+            transform: translate(-52%,50%) scale(2.05);   
+        }
+    }
+    .project3 {
+        top: 42%;
+        &:hover {
+            transform: translate(52%,-45%) scale(2.05);   
+        }
+    }
+    .project4 {
+        top: 42%;
+        &:hover {
+            transform: translate(-52%,-45%) scale(2.05);   
+        }
+    }
+    }
+}
+@media (max-height: 800px) and (orientation: portrait) {
+.projects-header {
+    font-size: 1.4em;
+    top: 20px;
+}
+.projects-container{
+    .project1 {
+
+        transition: all 2s;
+        &:hover {
+            transform: translate(52%,50%) scale(2.04);
+            z-index: 2;     
+        }
+    }
+    .project2 {
+
+        transition: all 2s;
+        &:hover {
+            transform: translate(-52%,50%) scale(2.04);
+            z-index: 2;     
+        }
+    }
+    .project3 {
+        top: 44%;
+        height: 38%;
+        transition: all 2s;
+        &:hover {
+            transform: translate(52%,-65%) scale(2.05);
+            z-index: 2;     
+        }
+    }
+    .project4 {
+        top: 44%;
+        height: 38%;
+        transition: all 2s;
+        &:hover {
+            transform: translate(-52%,-65%) scale(2.05);
+            z-index: 2;     
+        }
+    }
+}
+}
+
+@media (orientation: landscape)
+{
+  .projects-container {
+    position: absolute;
+    top: 20vh;
+
+    .project1{
+        &:hover {
+            transform: translate(52%,50%) scale(2.05);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/dziennik-landscape.png');
+            background-size: cover;
+            background-repeat: no-repeat;            
+        }
+    }
+
+    .project2{
+      &:hover {
+             transform: translate(-52%,50%) scale(2.05);
+             z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/FriendlyBeat-landscape.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .project3{
+      top: 43%;
+      height: 36%;
+        &:hover {
+            transform: translate(52%,-65%) scale(2.09);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/portfolioWebsite.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .project4{
+      top: 43%;
+      height: 36%;
+        &:hover {
+            transform: translate(-52%,-65%) scale(2.09);
+            z-index: 2;
+        }
+        .img {
+            width:100%;
+            height:100%;
+            border-radius: 1%;
+            background-image: url('../assets/game.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    .projects-container{
+        top: 3vh;
+    }
+}
+
+@media (min-width: 800px) and (orientation: landscape) {
+    .projects-container{
+        top: 6vh;
+    }
+}

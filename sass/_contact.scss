@@ -1,0 +1,88 @@
+
+.contact {
+  .phone, .email {
+
+    position: absolute;
+    text-align: center;
+    font-size: 2.5em;
+    width: 100vw;
+    top: 15vh;
+
+    div {
+      background-image: url('../assets/arrow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;     
+      position: relative;
+      width: 30px;
+      height:40px;
+      margin-bottom: 10px;
+      left: 50%;
+      animation: arrow 1.4s infinite;
+
+    }
+    span {
+      font-family: 'techFont';
+      cursor: pointer;
+      position: absolute;
+      width:100vw;
+      display: block;
+      backface-visibility: hidden;
+      transition: transform 2s;
+
+      &:nth-child(3) {
+        transform: rotateX(180deg);
+      }
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          color: #195190ff;
+        }
+      }
+    }
+
+    &:hover {
+      span {
+        transform: rotateX(-180deg);
+      }
+      span:nth-child(3) {
+        transform: rotateX(0deg);
+      }
+      
+    }
+  }
+  .email {  
+    top: 40vh;
+  }
+  .contact-github {  
+    position: absolute;
+    text-align: center;
+    font-size: 2.5em;
+    width: 100vw;
+    top: 75vh;
+    cursor: pointer;
+    transition: transform 1s ease-out; 
+
+    a {
+      font-family: 'techFont';
+      text-decoration: none;
+      color: black;
+      transition: transform 1s ease-out; 
+      &:hover {
+       font-size: 1.2em;
+        color: #195190ff;
+      }
+    }
+
+  }
+
+}
+@media (max-height: 360px) {
+  .contact {
+    .phone, .email {
+      font-size: 1.8em;
+    }
+  }
+}
