@@ -88,6 +88,11 @@
   }
 }
 
+@media (max-width: 600px) {
+  .background-container{
+    display: none;
+  }
+}
 
 
 
@@ -163,20 +168,8 @@
   opacity: 0.8;
   animation: moveclouds 20s linear infinite;
 }
+
 @keyframes moveclouds {
   0% {margin-left: 100vw;}
 	100% {margin-left: -100vw;}
-}
-
-@-webkit-keyframes moveclouds {
-	0% {margin-left: 100vw;}
-	100% {margin-left: -100vw;}
-}
-@-moz-keyframes moveclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
-}
-@-o-keyframes moveclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
 }
