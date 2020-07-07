@@ -79,19 +79,10 @@
     }
   }
 
-  @media (max-height: 600px) and (max-width: 767px) {
-  .background-container {
-      filter: brightness(0.3);
-    .wave{
-      top: 30%;
+  @media (max-width: 640px) and (max-height: 767px) {
+    .background-container{
+      display: none;
     }
-  }
-}
-
-@media (max-width: 600px) {
-  .background-container{
-    display: none;
-  }
 }
 
 
