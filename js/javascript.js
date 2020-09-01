@@ -1,6 +1,23 @@
 
 
 let scene = new THREE.Scene();
+loadingManager = new THREE.LoadingManager();
+loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+
+};
+loadingManager.onLoad = function ( ) {
+
+  console.log( 'Loading complete!');
+  const loadingScreen = document.querySelector('.loading-screen');
+
+  loadingScreen.style.display = 'none';
+  animate();
+
+
+};
+
 let menuHamburger = document.querySelector('ul');
 let menuButton = document.querySelector('.hamburger-button');
 let menuOpen = false;
@@ -9,8 +26,8 @@ var light = new THREE.AmbientLight( 0x404040 ); // soft white light
 scene.add( light );
 
 
-let textureLoader = new THREE.CubeTextureLoader();
-textureLoader.setPath('../WebsitePortfolio/assets/background/');
+let textureLoader = new THREE.CubeTextureLoader(loadingManager);
+textureLoader.setPath('../assets/background/');
 const textureCube = textureLoader.load([
     'skybox_left.png',
     'skybox_right.png',
@@ -28,8 +45,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 
  const cometObject = new THREE.Object3D();
- const gltfLoader = new THREE.GLTFLoader();
- gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite/scene.gltf', (comet) => {
+ const gltfLoader = new THREE.GLTFLoader(loadingManager);
+ gltfLoader.load('../assets/comets/meteorite/scene.gltf', (comet) => {
    cometObject.add(comet.scene);
    cometObject.scale.set(10, 10, 10);
    scene.add(cometObject);
@@ -37,7 +54,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
  setCometMovement(cometObject);
 
  const comet2Object = new THREE.Object3D();
- gltfLoader.load('../WebsitePortfolio/assets/comets/rock2/scene.gltf', (comet) => {
+ gltfLoader.load('../assets/comets/rock2/scene.gltf', (comet) => {
   comet2Object.add(comet.scene);
   comet2Object.scale.set(50, 50, 50);
    scene.add(comet2Object);
@@ -45,7 +62,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
  setCometMovement(comet2Object);
 
  const comet3Object = new THREE.Object3D();
- gltfLoader.load('../WebsitePortfolio/assets/comets/rock/scene.gltf', (comet) => {
+ gltfLoader.load('../assets/comets/rock/scene.gltf', (comet) => {
   comet3Object.add(comet.scene);
   comet3Object.scale.set(10, 10, 10);
    scene.add(comet3Object);
@@ -54,7 +71,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
  
  const comet4Object = new THREE.Object3D();
- gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
+ gltfLoader.load('../assets/comets/meteorite2/scene.gltf', (comet) => {
    comet4Object.add(comet.scene);
    comet4Object.scale.set(200, 200, 200);
    scene.add(comet4Object);
@@ -125,7 +142,7 @@ function animate() {
   });
  }
 
- animate();
+
 
 function displayMenuBaseOnWindowInnerWidth() {
   if(document.documentElement.clientWidth < 768 ) {

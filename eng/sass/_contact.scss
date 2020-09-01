@@ -7,6 +7,7 @@
     font-size: 2.5em;
     width: 100vw;
     top: 15vh;
+    color: white;   
 
     div {
       background-image: url('../assets/arrow.png');
@@ -20,6 +21,9 @@
       left: 50%;
       animation: arrow 1.4s infinite;
 
+    }
+    .arrow-green{
+      background-image: url('../assets/arrow2.png');
     }
     span {
       font-family: 'techFont';
@@ -35,7 +39,7 @@
       }
       a {
         text-decoration: none;
-        color: black;
+        color: white;
 
         &:hover {
           color: #195190ff;
@@ -46,7 +50,6 @@
     &:hover {
       span {
         transform: rotateX(-180deg);
-        z-index: 1;
       }
       span:nth-child(3) {
         transform: rotateX(0deg);
@@ -69,7 +72,7 @@
     a {
       font-family: 'techFont';
       text-decoration: none;
-      color: black;
+      color: white;
       transition: transform 1s ease-out; 
       &:hover {
        font-size: 1.2em;

@@ -1,0 +1,48 @@
+.loading-screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 100;
+    display: block;
+    color: white;
+
+
+    div{
+        position: absolute;
+        top: 50vh;
+        left: 45vw;
+        font-size: large;
+        width: 50vw;
+        .first-dot{
+            position: absolute;
+            top: 0vh;
+            left: 55px;
+            animation-delay: 0s;
+            animation: dot-animation 1.2s infinite;
+        }
+        .second-dot{
+            position: absolute;
+            top: 0vh;
+            left: 60px;
+
+            animation: dot-animation 1.2s infinite;
+            animation-delay: 100ms;
+        }
+        .third-dot{
+            position: absolute;
+            top: 0vh;
+            left: 65px;
+
+            animation: dot-animation 1.2s infinite;
+            animation-delay: 0.2s;
+        }
+    }
+
+}
+
+@keyframes dot-animation {
+    0%   {transform: translateY(0);}
+    50% {transform: translateY(-5px);}
+    0%   {transform: translateY(0);}
+}

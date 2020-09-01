@@ -1,12 +1,12 @@
 .projects-header {
     position: absolute;
-    top: 0px;
     width: 100vw;
     top: 10px;
     font-size: 1.5em;
     text-align: center;
     left: 1%;
     font-family: 'techFont';
+    color: white;
 }
 
 .projects-container {
@@ -298,13 +298,19 @@ div section {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    .projects-header{
+        top: 50px;
+    }
     .projects-container{
-        top: 3vh;
+        top: 10vh;
     }
 }
 
 @media (min-width: 800px) and (orientation: landscape) {
+    .projects-header{
+        top: 50px;
+    }
     .projects-container{
-        top: 6vh;
+        top: 10vw;
     }
 }

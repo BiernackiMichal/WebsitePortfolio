@@ -9,23 +9,10 @@
 </head>  
 <body data-barba="wrapper" >
 
-    <div class="background-container">
-        <div class="wave wave1"></div> 
-        <div class="wave wave2">
-            <div class="ship-container">
-                <div class="ship"></div>
-            </div>
-        </div> 
-        <div class="wave wave3"></div> 
-        <div class="wave wave4"></div> 
-    </div>
-    <div class="clouds">
-        <div class="cloud1"></div>
-        <div class="cloud2"></div>
-        <div class="cloud3"></div>
-        <div class="cloud4"></div>
-        <div class="cloud5"></div>
-    </div>
+
+    <div class="loading-screen">
+        <div>loading <span class="first-dot">.</span><span class="second-dot">.</span><span class="third-dot">.</span></div>
+    </div >
 
     <div class="horizontal-top">
         <div class="horizontal-line"></div>
@@ -74,7 +61,8 @@
             </main>
         </div>
 
-    
+    <script type="text/javascript" src='js/three.js'></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     
