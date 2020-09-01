@@ -17,14 +17,14 @@
         .first-dot{
             position: absolute;
             top: 0vh;
-            left: 55px;
+            left: 60px;
             animation-delay: 0s;
             animation: dot-animation 1.2s infinite;
         }
         .second-dot{
             position: absolute;
             top: 0vh;
-            left: 60px;
+            left: 65px;
 
             animation: dot-animation 1.2s infinite;
             animation-delay: 100ms;
@@ -32,7 +32,7 @@
         .third-dot{
             position: absolute;
             top: 0vh;
-            left: 65px;
+            left: 70px;
 
             animation: dot-animation 1.2s infinite;
             animation-delay: 0.2s;
