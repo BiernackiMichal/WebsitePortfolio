@@ -1,71 +1,131 @@
 
+
+let scene = new THREE.Scene();
 let menuHamburger = document.querySelector('ul');
 let menuButton = document.querySelector('.hamburger-button');
 let menuOpen = false;
-let bodyBackground = document.querySelector('.background-container');
-let ship = document.querySelector('.ship');
-let X;
-let Y;
-let translateShip = 1; 
-let mouse = addEventListener('mousemove', (e) => {
-   X = e.clientX;
-   Y = e.clientY;
-}) ;
+let number = 0;
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
+
+
+let textureLoader = new THREE.CubeTextureLoader();
+textureLoader.setPath('../assets/background/');
+const textureCube = textureLoader.load([
+    'skybox_left.png',
+    'skybox_right.png',
+    'skybox_up.png',
+    'skybox_down.png',
+    'skybox_front.png',
+    'skybox_back.png'
+]);
+scene.background = textureCube;
+let renderer = new THREE.WebGLRenderer({ antialias: true });
+document.body.appendChild( renderer.domElement );
+renderer.setSize(window.innerWidth, window.innerHeight);
+ const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.4, 1000);
+ resize = window.addEventListener('resize', onWindowResize);  
+
+
+ const cometObject = new THREE.Object3D();
+ const gltfLoader = new THREE.GLTFLoader();
+ gltfLoader.load('../assets/comets/meteorite/scene.gltf', (comet) => {
+   cometObject.add(comet.scene);
+   cometObject.scale.set(10, 10, 10);
+   scene.add(cometObject);
+ })
+ setCometMovement(cometObject);
+
+ const comet2Object = new THREE.Object3D();
+ gltfLoader.load('../assets/comets/rock2/scene.gltf', (comet) => {
+  comet2Object.add(comet.scene);
+  comet2Object.scale.set(50, 50, 50);
+   scene.add(comet2Object);
+ })
+ setCometMovement(comet2Object);
+
+ const comet3Object = new THREE.Object3D();
+ gltfLoader.load('../assets/comets/rock/scene.gltf', (comet) => {
+  comet3Object.add(comet.scene);
+  comet3Object.scale.set(10, 10, 10);
+   scene.add(comet3Object);
+ })
+ setCometMovement(comet3Object);
+
+ 
+ const comet4Object = new THREE.Object3D();
+ gltfLoader.load('../assets/comets/meteorite2/scene.gltf', (comet) => {
+   comet4Object.add(comet.scene);
+   comet4Object.scale.set(200, 200, 200);
+   scene.add(comet4Object);
+ })
+ setCometMovement(comet4Object);
+
+const interval = setInterval(() => {
+  setCometMovement(cometObject);
+  setCometMovement(comet2Object);
+  setCometMovement(comet3Object);
+  setCometMovement(comet4Object);
+ }, 20000);
+ 
+
+
+function setCometMovement(comet) {  
+  let num = Math.floor(Math.random()*399) + 1; // this will get a number between 1 and 99;
+  num *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+  let directionY = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  directionY *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+  let directionX = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  directionX *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+  let directionZ = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  directionZ *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+
+  let rotateY = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
+  rotateY *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+
+  let rotateZ = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
+  rotateZ *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+
+  let rotateX = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
+  rotateX *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+
+
+  comet.position.z=num;
+  comet.position.x=num;
+  comet.position.y=num;
+  comet.z = directionZ;
+  comet.x = directionX;
+  comet.y = directionY;
+  comet.rotateY=rotateY;
+  comet.rotateZ=rotateZ;
+  comet.rotateX=rotateX;
+}
 
 
 
-let rotate = 0;
-let index = 1
-setInterval(() => {  
 
-  if(X < window.innerWidth/2)  { 
-    if(rotate > 10 ) {
-      return;
-    }else { 
-    rotate+=0.05 ;
-    }
-
-  } if(X > window.innerWidth/2) {
-    if(rotate < -10) {
-      return;
-    }
-    else {
-      rotate -= 0.05 ;
-    }
-  }
-
-
-  bodyBackground.style.transform = 'rotate('+rotate +'deg)'; 
-
-}, 10);
-
-setInterval(() => {
-  if (rotate > 0 ) {
-    if (ship.getBoundingClientRect().right < window.innerWidth){
-      translateShip += 0.2;
-
-    }
-      else {
-        translateShip += 0;
-      }
-  }
-
-  if (rotate < 0) {
-    if(ship.getBoundingClientRect().x >= 0) {
-      translateShip -= 0.2;  
-
-    }
-    else {
-      translateShip += 0;
-    }
-  }
-    
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+  camera.rotation.x+=0.001;
+  camera.rotation.z+=0.001;
+  scene.children.forEach(element => {
+    element.position.z+=element.z;
+    element.position.x+=element.x;
+    element.position.y+=element.y;
+    element.rotation.y+=element.rotateY;
+    element.rotation.x+=element.rotateX;
+    element.rotation.z+=element.rotateZ;
 
 
 
-ship.style.transform ='translateX('+translateShip+'px) ';
-  
-}, 10);
+  });
+ }
+
+ animate();
 
 function displayMenuBaseOnWindowInnerWidth() {
   if(document.documentElement.clientWidth < 768 ) {
@@ -183,4 +243,9 @@ barba.init({
 });
 
 
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
 
