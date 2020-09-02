@@ -61,13 +61,15 @@ renderer.setSize(window.innerWidth, window.innerHeight);
  })
  setCometMovement(comet2Object);
 
+ 
  const comet3Object = new THREE.Object3D();
- gltfLoader.load('../WebsitePortfolio/assets/comets/rock/scene.gltf', (comet) => {
-  comet3Object.add(comet.scene);
-  comet3Object.scale.set(10, 10, 10);
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
+   comet3Object.add(comet.scene);
+   comet3Object.scale.set(100, 100, 100);
    scene.add(comet3Object);
  })
  setCometMovement(comet3Object);
+
 
  
  const comet4Object = new THREE.Object3D();
@@ -78,26 +80,36 @@ renderer.setSize(window.innerWidth, window.innerHeight);
  })
  setCometMovement(comet4Object);
 
+  
+ const comet5Object = new THREE.Object3D();
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
+   comet5Object.add(comet.scene);
+   comet5Object.scale.set(100, 100, 100);
+   scene.add(comet5Object);
+ })
+ setCometMovement(comet5Object);
+
 const interval = setInterval(() => {
   setCometMovement(cometObject);
   setCometMovement(comet2Object);
   setCometMovement(comet3Object);
   setCometMovement(comet4Object);
- }, 20000);
+  setCometMovement(comet5Object);
+ }, 15000);
  
 
 
 function setCometMovement(comet) {  
-  let num = Math.floor(Math.random()*399) + 1; // this will get a number between 1 and 99;
+  let num = Math.floor(Math.random()*199) + 100; // this will get a number between 1 and 99;
   num *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
 
-  let directionY = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  let directionY = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
   directionY *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
 
-  let directionX = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  let directionX = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
   directionX *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
 
-  let directionZ = (Math.random() * (0.120 - 0.0200) + 0.900); // this will get a number between 1 and 99;
+  let directionZ = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
   directionZ *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
 
   let rotateY = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
@@ -109,10 +121,11 @@ function setCometMovement(comet) {
   let rotateX = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
   rotateX *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
 
-
+let scale = Math.floor(Math.random()*99) + 20
   comet.position.z=num;
   comet.position.x=num;
   comet.position.y=num;
+  comet.scale.set(scale,scale,scale);
   comet.z = directionZ;
   comet.x = directionX;
   comet.y = directionY;
