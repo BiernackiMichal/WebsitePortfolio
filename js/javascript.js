@@ -151,9 +151,6 @@ function animate() {
     element.rotation.y+=element.rotateY;
     element.rotation.x+=element.rotateX;
     element.rotation.z+=element.rotateZ;
-
-
-
   });
  }
 
