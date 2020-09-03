@@ -18,7 +18,6 @@ loadingManager.onLoad = function ( ) {
 
 };
 
-let url = '../WebsitePortfolio/' || '../eng/' ;
 
 let menuHamburger = document.querySelector('ul');
 let menuButton = document.querySelector('.hamburger-button');
@@ -29,7 +28,7 @@ scene.add( light );
 
 
 let textureLoader = new THREE.CubeTextureLoader(loadingManager);
-textureLoader.setPath(url + 'assets/background/');
+textureLoader.setPath('../WebsitePortfolio/assets/background/');
 const textureCube = textureLoader.load([
     'skybox_left.png',
     'skybox_right.png',
@@ -48,7 +47,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
  const cometObject = new THREE.Object3D();
  const gltfLoader = new THREE.GLTFLoader(loadingManager);
- gltfLoader.load(url + 'assets/comets/meteorite/scene.gltf', (comet) => {
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite/scene.gltf', (comet) => {
    cometObject.add(comet.scene);
    cometObject.scale.set(10, 10, 10);
    scene.add(cometObject);
@@ -56,7 +55,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
  setCometMovement(cometObject);
 
  const comet2Object = new THREE.Object3D();
- gltfLoader.load(url + 'assets/comets/rock2/scene.gltf', (comet) => {
+ gltfLoader.load('../WebsitePortfolio/assets/comets/rock2/scene.gltf', (comet) => {
   comet2Object.add(comet.scene);
   comet2Object.scale.set(50, 50, 50);
    scene.add(comet2Object);
@@ -65,7 +64,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
  
  const comet3Object = new THREE.Object3D();
- gltfLoader.load(url + 'assets/comets/meteorite2/scene.gltf', (comet) => {
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
    comet3Object.add(comet.scene);
    comet3Object.scale.set(100, 100, 100);
    scene.add(comet3Object);
@@ -75,7 +74,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
  
  const comet4Object = new THREE.Object3D();
- gltfLoader.load(url + 'assets/comets/meteorite2/scene.gltf', (comet) => {
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
    comet4Object.add(comet.scene);
    comet4Object.scale.set(200, 200, 200);
    scene.add(comet4Object);
@@ -84,7 +83,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
   
  const comet5Object = new THREE.Object3D();
- gltfLoader.load(url + 'assets/comets/meteorite2/scene.gltf', (comet) => {
+ gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
    comet5Object.add(comet.scene);
    comet5Object.scale.set(100, 100, 100);
    scene.add(comet5Object);
