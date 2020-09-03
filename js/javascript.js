@@ -18,7 +18,7 @@ loadingManager.onLoad = function ( ) {
 
 };
 
-const url = '../WebsitePortfolio/' || '../eng/' ;
+let url = '../WebsitePortfolio/' || '../eng/' ;
 
 let menuHamburger = document.querySelector('ul');
 let menuButton = document.querySelector('.hamburger-button');
