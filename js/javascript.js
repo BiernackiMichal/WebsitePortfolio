@@ -27,7 +27,7 @@ scene.add( light );
 
 
 let textureLoader = new THREE.CubeTextureLoader(loadingManager);
-textureLoader.setPath('../WebsitePortfolio/assets/background/');
+textureLoader.setPath('/assets/background/');
 const textureCube = textureLoader.load([
     'skybox_left.png',
     'skybox_right.png',
