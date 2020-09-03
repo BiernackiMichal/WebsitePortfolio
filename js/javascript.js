@@ -80,7 +80,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
    scene.add(comet4Object);
  })
  setCometMovement(comet4Object);
-
   
  const comet5Object = new THREE.Object3D();
  gltfLoader.load('../WebsitePortfolio/assets/comets/meteorite2/scene.gltf', (comet) => {
