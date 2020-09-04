@@ -1,4 +1,5 @@
 .loading-screen {
+    overflow: hidden;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -6,43 +7,12 @@
     z-index: 100;
     display: block;
     color: white;
-
-
-    div{
+    .percent-loaded {
         position: absolute;
-        top: 50vh;
-        left: 45vw;
-        font-size: large;
-        width: 50vw;
-        .first-dot{
-            position: absolute;
-            top: 0vh;
-            left: 60px;
-            animation-delay: 0s;
-            animation: dot-animation 1.2s infinite;
-        }
-        .second-dot{
-            position: absolute;
-            top: 0vh;
-            left: 65px;
-
-            animation: dot-animation 1.2s infinite;
-            animation-delay: 100ms;
-        }
-        .third-dot{
-            position: absolute;
-            top: 0vh;
-            left: 70px;
-
-            animation: dot-animation 1.2s infinite;
-            animation-delay: 0.2s;
-        }
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
-}
-
-@keyframes dot-animation {
-    0%   {transform: translateY(0);}
-    50% {transform: translateY(-5px);}
-    0%   {transform: translateY(0);}
 }

@@ -1,21 +1,14 @@
 
-
 let scene = new THREE.Scene();
 loadingManager = new THREE.LoadingManager();
+const loadingScreen = document.querySelector('.loading-screen');
+const percentLoaded = document.querySelector('.percent-loaded');
 loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-
-	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-
+  percentLoaded.innerHTML = (itemsLoaded/itemsTotal * 100).toFixed(2) + '%';
 };
 loadingManager.onLoad = function ( ) {
-
-  console.log( 'Loading complete!');
-  const loadingScreen = document.querySelector('.loading-screen');
-
   loadingScreen.style.display = 'none';
   animate();
-
-
 };
 
 
