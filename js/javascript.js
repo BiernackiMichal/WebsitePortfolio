@@ -4,7 +4,7 @@ loadingManager = new THREE.LoadingManager();
 const loadingScreen = document.querySelector('.loading-screen');
 const percentLoaded = document.querySelector('.percent-loaded');
 loadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-  percentLoaded.innerHTML = (itemsLoaded/itemsTotal * 100).toFixed(2) + '%';
+percentLoaded.innerHTML = (itemsLoaded/itemsTotal * 100).toFixed(0) + '%';
 };
 loadingManager.onLoad = function ( ) {
   loadingScreen.style.display = 'none';
@@ -93,18 +93,17 @@ const interval = setInterval(() => {
 
 
 function setCometMovement(comet) {  
-  let num = Math.floor(Math.random()*199) + 100; // this will get a number between 1 and 99;
-  num *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+  let num = Math.floor(Math.random()*199) + 100; 
+  num *= Math.floor(Math.random()*2) == 1 ? 1 : -1; 
 
-  let directionY = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
-  directionY *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+  let directionY = (Math.random() * (3.620 - 1.5) + 1.5); 
+  directionY *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
 
-  let directionX = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
-  directionX *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+  let directionX = (Math.random() * (3.620 - 1.5) + 1.5); 
+  directionX *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
 
-  let directionZ = (Math.random() * (3.620 - 1.5) + 1.5); // this will get a number between 1 and 99;
-  directionZ *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
-
+  let directionZ = (Math.random() * (3.620 - 1.5) + 1.5); 
+  directionZ *= Math.floor(Math.random()*2) == 1 ? 1 : -1; 
   let rotateY = (Math.random() * (0.00120 - 0.000200) + 0.00900); 
   rotateY *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
 
